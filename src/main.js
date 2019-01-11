@@ -12,7 +12,7 @@ import locale from 'element-ui/lib/locale/lang/ru-RU'
 
 Vue.use(ElementUI, { locale })
 
-Vue.config.productionTip = false
+Vue.config.productionTip = process.env.NODE_ENV === 'production'
 
 new Vue({
   router,

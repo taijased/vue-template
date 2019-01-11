@@ -1,6 +1,6 @@
 <template lang="pug">
   .about 
-    h1  This is an about page
+    h1  {{title}}
     .block
       el-date-picker(v-model='value8', type='date', placeholder='Pick a date', default-value='2010-10-01')
 
@@ -11,7 +11,8 @@ export default {
   data() {
     return {
       value8: '',
-      value9: ''
+      value9: '',
+      title: process.env.NODE_ENV
     };
   }
 };
