@@ -34,6 +34,10 @@ row-center()
     flex-direction row
     align-items center
 header 
+    position fixed
+    top 0
+    left 0
+    right 0
     row-center()
     justify-content space-between
     height $header-height
