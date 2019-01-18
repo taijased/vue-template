@@ -1,5 +1,5 @@
 <template lang="pug">
-    .project-card
+    .project-card(@click="$router.push('/project')")
         .project-card__img
         .project-card-panel
             .project-card-panel__title Дожить до рассвета

@@ -5,7 +5,10 @@ Vue.use(Router)
 
 
 const Index = () => import('./views/Index.vue')
-const Projects = () => import('./modules/projects/Index.vue')
+
+const IndexProjects = () => import('./modules/projects/Index.vue')
+const AllProjects = () => import('./modules/projects/views/AllProjects.vue')
+const Project = () => import('./modules/projects/views/Project.vue')
 const Error404 = () => import('./views/Error404.vue')
 
 export default new Router({
@@ -18,7 +21,17 @@ export default new Router({
       children: [
         {
           path: '',
-          component: Projects,
+          component: IndexProjects,
+          children: [
+            {
+              path: '',
+              component: AllProjects,
+            },
+            {
+              path: '/project',
+              component: Project,
+            } 
+          ]
         }
       ]
     },

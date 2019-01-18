@@ -1,16 +1,19 @@
 <template lang="pug">
-    .index-projects
-        router-view 
+    .project
+        h1 hello 
 </template>
 
 <script>
+
 export default {
-   
+
 }
 </script>
 
 <style lang="stylus" scoped>
-.index-projects
+.project
     width 100%
-    margin-top auto
+    height 100vh - $header-height
+    padding-top $header-height
+    overflow hidden
 </style>
