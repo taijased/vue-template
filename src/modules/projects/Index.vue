@@ -12,5 +12,5 @@ export default {
 <style lang="stylus" scoped>
 .index-projects
     width 100%
-    margin-top auto
+    margin-top $header-height
 </style>

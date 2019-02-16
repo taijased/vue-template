@@ -1,3 +1,3 @@
-export function fetchSaleProducts({ commit }) {
-  commit("FETCH_SALE_PRODUCTS");
+export function updateShowProject({ commit }) {
+  commit("UPDATE_PROJECT");
 }

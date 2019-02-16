@@ -1,6 +1,6 @@
 <template lang="pug">
     header
-        .navigation
+        .navigation(v-if="!showProject")
             .logo 
                 img(src="./assets/arq-logo.svg")
                 span arq
@@ -8,6 +8,10 @@
                 router-link(to="/") Проекты
                 router-link(to="/metrica") Аналитика
                 router-link(to="/support") Поддержка
+        .navigation(v-else)
+            .navigation__back(@click="$router.go(-1)")
+                img(src="./assets/arrow-right.svg")
+                span Назад 
         .controls
             .notification
                 .notification__count 12
@@ -21,8 +25,14 @@
 </template>
 
 <script>
-export default {
+import { mapGetters} from 'vuex';
 
+export default {
+    computed: {
+        ...mapGetters({
+            showProject: "projects/showProject"
+        })
+    }
 }
 </script>
 
@@ -84,6 +94,19 @@ header
                     color: #000000;
                     opacity: 1
                     box-shadow: 0 5px 0 -2px $purple;
+        &__back 
+            row-center()
+            span
+                margin-left 22px
+                font-family: 'TT Norms Medium';
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                font-size: 30px;
+                letter-spacing: -0.617648px;
+                color: #000000;
+
+
     .controls
         display flex
         flex-direction row

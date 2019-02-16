@@ -1,1 +1,1 @@
-export const getSaleProducts = state => state.saleProducts;
+export const showProject = state => state.showProject;

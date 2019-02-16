@@ -22,7 +22,7 @@ export default {
     background: #FFFFFF;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.197945);
     border-radius: 10px;
-    margin 15px 0
+    margin 15px 10px
     &__img
         width @width 
         height 250px

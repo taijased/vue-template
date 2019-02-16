@@ -5,8 +5,25 @@
 
 <script>
 
+import { mapGetters, mapActions} from 'vuex';
 export default {
-
+    computed: {
+        ...mapGetters({
+            showProject: "projects/showProject"
+        })
+    },
+    methods: {
+        ...mapActions({
+            updateShowProject: "projects/updateShowProject"
+        })
+    },
+    created () {
+        this.updateShowProject();
+    },
+    beforeDestroy () {
+        this.updateShowProject();
+    }
+    
 }
 </script>
 
