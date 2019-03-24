@@ -1,8 +1,9 @@
 <template lang="pug">
-    .project-card(@click="$router.push('/project')")
+    .project-card(@click="openProject")
         .project-card__img
+            img(:src="data.render")
         .project-card-panel
-            .project-card-panel__title Дожить до рассвета
+            .project-card-panel__title {{data.aliase}}
             .project-card-panel__controls
                 .status.published Опубликован
                 img(src="../assets/trash.svg", alt="trash")
@@ -11,18 +12,23 @@
 <script>
 export default {
     props: {
-        data: String
+        data: Object
+    },
+    methods: {
+        openProject () {
+            this.$router.push('/project/' + this.data.aliase)
+        }
     }
 }
 </script>
 
 <style lang="stylus" scoped>
 .project-card
-    width 350px
+    // width 350px
     background: #FFFFFF;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.197945);
     border-radius: 10px;
-    margin 15px 10px
+    margin 15px 0
     &__img
         width @width 
         height 250px

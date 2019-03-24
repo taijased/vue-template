@@ -8,7 +8,8 @@ const Index = () => import('./views/Index.vue')
 
 const IndexProjects = () => import('./modules/projects/Index.vue')
 const AllProjects = () => import('./modules/projects/views/AllProjects.vue')
-const Project = () => import('./modules/projects/views/Project.vue')
+const AddNewProject = () => import('./modules/projects/views/AddNewProject.vue')
+const OpenProject = () => import('./modules/projects/views/OpenProject.vue')
 const Error404 = () => import('./views/Error404.vue')
 
 export default new Router({
@@ -28,8 +29,12 @@ export default new Router({
               component: AllProjects,
             },
             {
-              path: '/project',
-              component: Project,
+              path: '/project/:aliase',
+              component: OpenProject,
+            },
+            {
+              path: '/addnewproject',
+              component: AddNewProject,
             } 
           ]
         }

@@ -6974,6 +6974,11 @@ thread-loader@^1.2.0:
     loader-runner "^2.3.0"
     loader-utils "^1.1.0"
 
+three@^0.88.0:
+  version "0.88.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.88.0.tgz#4256c2fc38e4fb23a0d23eba2b6cce4df8e466d5"
+  integrity sha1-QlbC/Djk+yOg0j66K2zOTfjkZtU=
+
 throttle-debounce@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-1.1.0.tgz#51853da37be68a155cb6e827b3514a3c422e89cd"
@@ -7358,6 +7363,13 @@ void-elements@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
   integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
+
+vue-3d-model@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/vue-3d-model/-/vue-3d-model-1.0.2.tgz#aa0f24ba9cd9c0bc387e1fed337764bd72b76eb4"
+  integrity sha512-AfuvlmMIJrzp5dsCdust2K/oEXVV/KjDZa1f4vfhWBjL7ZoVgy16u5JkY9qdCBoUsn5XQQmMW4zy5tHSAjhFXA==
+  dependencies:
+    three "^0.88.0"
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.1"

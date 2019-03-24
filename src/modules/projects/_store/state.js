@@ -1,3 +1,4 @@
 export default {
-  showProject: false
+  showProject: false,
+  modelList: null
 };
