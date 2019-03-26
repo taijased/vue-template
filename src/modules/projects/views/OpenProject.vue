@@ -1,8 +1,9 @@
 <template lang="pug">
     .project
-        el-container
+        //- el-container(v-loading="loadingStatus")
+        el-container(v-loading="false")
             el-aside 
-                h3  3D модель {{$route.params.aliase}}
+                h3  3D модель
             el-main
                 Workspace
 
@@ -17,7 +18,8 @@ import { mapGetters, mapActions} from 'vuex';
 export default {
     computed: {
         ...mapGetters({
-            showProject: "projects/showProject"
+            showProject: "projects/showProject",
+            loadingStatus: "projects/loadingStatus",
         })
     },
     methods: {
@@ -27,8 +29,6 @@ export default {
     },
     created () {
         this.updateShowProject();
-        // this.aliase = this.$route.params.aliase
-        // console.log(this.aliase);
     },
     beforeDestroy () {
         this.updateShowProject();

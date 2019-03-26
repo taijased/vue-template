@@ -1,4 +1,5 @@
 export default {
   showProject: false,
-  modelList: null
+  modelList: null,
+  loadingStatus: true
 };

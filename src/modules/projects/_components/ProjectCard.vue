@@ -16,7 +16,7 @@ export default {
     },
     methods: {
         openProject () {
-            this.$router.push('/project/' + this.data.aliase)
+            this.$router.push('/project/' + this.data.guid)
         }
     }
 }
