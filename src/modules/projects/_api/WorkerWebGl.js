@@ -1,13 +1,5 @@
 
 
-
-    
-            
-  
-
-
-   
-
 const THREE = require('three')
 
 let container;
@@ -27,9 +19,9 @@ function setTrackballController() {
     // Trackball Controller
     ///////////////////////////////////////
     controls.rotateSpeed = 5.0;
-    controls.zoomSpeed = 3.2;
+    // controls.zoomSpeed = 3.2;
     controls.panSpeed = 0.8;
-    controls.noZoom = false;
+    controls.noZoom = true;
     controls.noPan = true;
     controls.staticMoving = false;
     controls.dynamicDampingFactor = 0.2;
@@ -41,6 +33,7 @@ function loadCollada(path) {
     /////////////////////////////////////////
     // Object Loader
     /////////////////////////////////////////
+
 
     var ColladaLoader = require('three-collada-loader');
     let loader = new ColladaLoader();
@@ -81,11 +74,7 @@ function renderPhone() {
     renderer.render( scene, camera );
 }
 
-function setCameraPosition(x, y, z) {
-    camera.position.set(x, y, z);
-    camera.lookAt( scene.position );
-    renderer.render( scene, camera );
-}
+
 
 const WorkerWebGL = {
     setupScene (id) {
@@ -103,48 +92,64 @@ const WorkerWebGL = {
         renderer.setSize( container.offsetWidth, window.innerHeight );
         container.appendChild( renderer.domElement );
 
-        let stats = new Stats();
-		container.appendChild( stats.dom );
-        // setTrackballController();
+        setTrackballController();
         setupUtilities()
-        windowResizing()
+        // windowResizing()
         /////////////////////////////////////////
         // Lighting
         /////////////////////////////////////////
 
         var iphone_color  = '#FAFAFA',
-            ambientLight  = new THREE.AmbientLight( '#EEEEEE' ),
+            ambientLight  = new THREE.AmbientLight( 'red' ),
             hemiLight     = new THREE.HemisphereLight( iphone_color, iphone_color, 0 ),
             light         = new THREE.PointLight( iphone_color, 1, 100 );
 
         hemiLight.position.set( 0, 50, 0 );
         light.position.set( 0, 20, 10 );
 
-     
-
         scene.add( ambientLight );
         scene.add( hemiLight );
         scene.add( light );
 
-
-        /////////////////////////////////////////
-        // Render Loop
-        /////////////////////////////////////////
-
-
-        // controls.addEventListener( 'change', renderPhone );
-
-        // // Avoid constantly rendering the scene by only 
-        // // updating the controls every requestAnimationFrame
-        // function animationLoop() {
-        //     requestAnimationFrame(animationLoop);
-        //     controls.update();
-        // }
-
-        // animationLoop();
-
         loadCollada('https://s3-us-west-2.amazonaws.com/s.cdpn.io/392/iphone6.dae');
-  }
+    },
+    setResize(size) {
+        camera.position.set(100 - size, 100 - size, 100 - size);
+        camera.lookAt( scene.position );
+        renderer.render( scene, camera );
+    },
+    setCameraPosition(payload) {
+        function animationLoop() {
+            requestAnimationFrame(animationLoop);
+            controls.update();
+        }
+        switch(payload) {
+            //left
+            case 1: 
+                camera.position.set(10, 0, 0);
+                controls.removeEventListener( 'change', renderPhone );
+                break;
+            // right
+            case 2: 
+                camera.position.set(0, 0, 10);
+                controls.removeEventListener( 'change', renderPhone );
+                break;
+            // top
+            case 3: 
+                camera.position.set(0, 10, 0);    
+                controls.removeEventListener( 'change', renderPhone );
+                break;
+            // free
+            case 4: 
+                camera.position.set(0, 2, 10);  
+                controls.addEventListener( 'change', renderPhone );
+                animationLoop(); 
+                break;
+            default: break
+        }
+        camera.lookAt( scene.position );
+        renderer.render( scene, camera );
+    }
 }
 
 export default WorkerWebGL

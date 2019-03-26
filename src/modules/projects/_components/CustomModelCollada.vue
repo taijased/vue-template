@@ -24,9 +24,10 @@ export default {
         }
     },
     created () {
-        setTimeout(() => {
+        this.$nextTick(() => {
             this.createDaeModel()
-        }, 2000);
+        })
+       
     }
 }
 </script>
@@ -39,6 +40,5 @@ $primary = #3D3BEE
     background #3D3BEE
     overflow hidden
     canvas 
-        width 100%
-        height 100%
+        pointer-events none
 </style>

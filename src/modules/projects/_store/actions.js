@@ -1,5 +1,6 @@
 import ProjectService from '../_api/ProjectService'
 import FileWorkerService from '../_api/FileWorkerService';
+import WorkerWebGl from '../_api/WorkerWebGl';
 
 export function updateShowProject({ commit }) {
   commit("UPDATE_PROJECT");
@@ -59,4 +60,52 @@ export function fetchModelFromServer({commit}, payload) {
   } catch (error) {
     console.log(error);
   }
+}
+
+
+export function setSizeSlider({commit}, payload) {
+  WorkerWebGl.setResize(payload)
+  commit("UPDATE_SIZE_SLIDER", payload)
+}
+
+
+export function setCameraPosition({commit}, payload) {
+  let cameraPosition
+  switch(payload) {
+    case 1: 
+        cameraPosition = {
+            left: true,
+            right: false, 
+            top: false,
+            free: false
+        }
+        break;
+    case 2: 
+        cameraPosition = {
+          left: false,
+          right: true, 
+          top: false,
+          free: false
+        } 
+        break;
+    case 3: 
+        cameraPosition = {
+          left: false,
+          right: false, 
+          top: true,
+          free: false
+        } 
+        break;
+    case 4: 
+        cameraPosition = {
+          left: false,
+          right: false, 
+          top: false,
+          free: true
+        } 
+        break;
+    default: break
+  }
+  WorkerWebGl.setCameraPosition(payload)
+  commit("UPDATE_CAMERA_POSITION", cameraPosition)
 }
