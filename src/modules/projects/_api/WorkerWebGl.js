@@ -94,7 +94,8 @@ const WorkerWebGL = {
 
         setTrackballController();
         setupUtilities()
-        // windowResizing()
+
+        windowResizing()
         /////////////////////////////////////////
         // Lighting
         /////////////////////////////////////////
@@ -111,6 +112,7 @@ const WorkerWebGL = {
         scene.add( hemiLight );
         scene.add( light );
 
+        // loadCollada('https://ari.arq.su/models/174533c2-3cea-4a61-8b29-b85a8f7d605b/Sofa1.DAE');
         loadCollada('https://s3-us-west-2.amazonaws.com/s.cdpn.io/392/iphone6.dae');
     },
     setResize(size) {

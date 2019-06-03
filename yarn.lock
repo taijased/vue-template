@@ -7021,6 +7021,11 @@ three-trackballcontrols@^0.0.7:
   resolved "https://registry.yarnpkg.com/three-trackballcontrols/-/three-trackballcontrols-0.0.7.tgz#42cae1f6856d5f889eaae3a0e2fca9d214793e91"
   integrity sha512-vWs5XkBnhFb5TkqiEHcvZf50FcOVlXTYL4OT4ydeFr0r7j5H6HYf6ODYnYr7todUECxNf/rbh8zSQKFb0NW83w==
 
+three-transform-controls@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/three-transform-controls/-/three-transform-controls-1.0.4.tgz#dea99f8b30d1b8e0bb9f9055f8862ce80c0eaf52"
+  integrity sha1-3qmfizDRuOC7n5BV+IYs6AwOr1I=
+
 three@^0.102.1:
   version "0.102.1"
   resolved "https://registry.yarnpkg.com/three/-/three-0.102.1.tgz#fc08b6b11860cf59e8cd45b7e90e34d1d1a8cbd6"

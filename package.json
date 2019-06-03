@@ -17,6 +17,7 @@
     "three-collada-loader": "^0.0.1",
     "three-orbitcontrols": "^2.102.1",
     "three-trackballcontrols": "^0.0.7",
+    "three-transform-controls": "^1.0.4",
     "vue": "^2.5.21",
     "vue-3d-model": "^1.0.2",
     "vue-router": "^3.0.1",

@@ -1,12 +1,11 @@
 <template lang="pug">
-    .custom-model
-        div(id="custommodel")
+    #custommodel
 </template>
 
 <script>
 
 import { mapGetters, mapActions} from 'vuex';
-import WorkerWebGl from '../_api/WorkerWebGl.js';
+import WebGlControl from '../_api/WebGlControl.js'
 
 
 export default {
@@ -20,25 +19,25 @@ export default {
             fetchModelFromServer: "projects/fetchModelFromServer"
         }),
         createDaeModel() {
-            WorkerWebGl.setupScene('custommodel')
+            WebGlControl.setupScene('custommodel')
         }
     },
     created () {
         this.$nextTick(() => {
             this.createDaeModel()
         })
-       
     }
 }
 </script>
 
 <style lang="stylus" scope>
 $primary = #3D3BEE
-.custom-model
+#custommodel
     height 100%
     width 100%
     background #3D3BEE
     overflow hidden
     canvas 
-        pointer-events none
+        height 100%
+        width 100%
 </style>
