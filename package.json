@@ -13,7 +13,7 @@
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
     "style-resources-loader": "^1.2.1",
-    "three": "^0.102.1",
+    "three": "^0.125.0",
     "three-collada-loader": "^0.0.1",
     "three-orbitcontrols": "^2.102.1",
     "three-trackballcontrols": "^0.0.7",
