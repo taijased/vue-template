@@ -9,7 +9,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "element-ui": "^2.4.11",
-    "jszip": "^3.2.1",
+    "jszip": "^3.7.0",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
     "style-resources-loader": "^1.2.1",
